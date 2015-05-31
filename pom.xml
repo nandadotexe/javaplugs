@@ -4,11 +4,12 @@
  
     <groupId>org.github.javaplugs</groupId>
     <artifactId>javaplugs</artifactId>
-    <version>0.1</version>
+    <version>0.1.0</version>
     <packaging>jar</packaging>
  
-    <name>JavaPlugs - some java tweaks without external dependencies</name>
-    <url>http://maven.apache.org</url>
+    <name>JavaPlugs</name>
+    <description>Some useful java tweaks without external dependencies</description>
+    <url>https://github.com/javaplugs</url>
  
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -17,7 +18,12 @@
     </properties>
  
     <dependencies>
-    
+        <dependency>
+            <groupId>org.testng</groupId>
+            <artifactId>testng</artifactId>
+            <version>6.8.21</version>
+            <scope>test</scope>
+        </dependency>
     </dependencies>
   
     <build>
@@ -60,6 +66,18 @@
                         </goals>
                     </execution>
                 </executions>
+            </plugin>
+            
+            <!-- Testing -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-surefire-plugin</artifactId>
+                <version>2.18.1</version>
+                <configuration>
+                    <suiteXmlFiles>
+                        <suiteXmlFile>src/test/resources/testng.xml</suiteXmlFile>
+                    </suiteXmlFiles>
+                </configuration>
             </plugin>
         </plugins>
     </build>
