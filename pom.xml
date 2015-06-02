@@ -2,13 +2,13 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
  
-    <groupId>org.github.javaplugs</groupId>
+    <groupId>com.github.javaplugs</groupId>
     <artifactId>javaplugs</artifactId>
-    <version>0.1.0</version>
+    <version>0.1</version>
     <packaging>jar</packaging>
  
     <name>JavaPlugs</name>
-    <description>Some useful java tweaks without external dependencies</description>
+    <description>Some Java tweaks without external dependencies</description>
     <url>https://github.com/javaplugs</url>
  
     <properties>

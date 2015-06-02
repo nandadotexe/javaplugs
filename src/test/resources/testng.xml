@@ -20,7 +20,7 @@
     
     <test name="All tests">
         <packages>
-            <package name="org.github.javaplugs.*"/>
+            <package name="com.github.javaplugs.*"/>
         </packages>
     </test>
 

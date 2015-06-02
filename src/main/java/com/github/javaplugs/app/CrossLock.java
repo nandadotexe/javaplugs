@@ -21,7 +21,7 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  * SOFTWARE. 
  */
-package org.github.javaplugs.app;
+package com.github.javaplugs.app;
 
 import java.io.File;
 import java.io.FileOutputStream;
@@ -32,7 +32,7 @@ import java.nio.channels.OverlappingFileLockException;
 import java.util.HashMap;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import org.github.javaplugs.Hasher;
+import com.github.javaplugs.Hasher;
 
 /**
  * Universal cross application instances locker.

@@ -21,34 +21,39 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  * SOFTWARE. 
  */
-package org.github.javaplugs;
-
-import java.security.MessageDigest;
-import java.security.NoSuchAlgorithmException;
+package com.github.javaplugs.app;
 
 /**
+ * The Class AppLock.
+ *
  * @author Vladislav Zablotsky
  */
-public class Hasher {
+public class AppLock {
+
+    private static CrossLock lockInstance;
 
     /**
-     * Will generate MD5 string based on input value.
+     * Set lock for application instance.
+     * Method must be run only one time at application start.
+     *
+     * @param lockId Unique lock identifiers
+     * @return true if succeeded
      */
-    public static String md5(String val) {
-        MessageDigest md;
-        try {
-            md = MessageDigest.getInstance("MD5");
-            md.reset();
-        } catch (NoSuchAlgorithmException ex) {
-            throw new UnknownError(ex.getMessage());
+    public synchronized boolean lock(String lockId) {
+        if (lockInstance == null) {
+            lockInstance = new CrossLock("appliction_" + lockId);
         }
+        return lockInstance.lock();
+    }
 
-        String md5 = new java.math.BigInteger(1, md.digest(val.getBytes())).toString(16);
-
-        // Hash string has no leading zeros. Adding zeros to the beginnig of has string
-        while (md5.length() < 32) {
-            md5 = "0" + md5;
+    /**
+     * Trying to release application lock.
+     * Thus another application instances will be able to use lock with current ID.
+     */
+    public synchronized void release() {
+        if (lockInstance != null) {
+            lockInstance.clear();
         }
-        return md5;
+        lockInstance = null;
     }
 }
