@@ -4,9 +4,10 @@ Small set of Java tweaks without any dependencies
 ## Content
 
 ### CrossLock & AppLock
-Using idea of file locking to somehow synchronize code in different Java instances (or applications)
+Using idea of file locking to somehow synchronize code in different JVM instances (applications)
+on the same computer.
 
-**CrossLock** allows you to use lock-like functionality between different instances.
+**CrossLock** allows you to use lock-like functionality between multiple JVM instances on the same computer.
 
 **AppLock** is based on ClossLock and allows you to run only one Java application instance at time.
 
