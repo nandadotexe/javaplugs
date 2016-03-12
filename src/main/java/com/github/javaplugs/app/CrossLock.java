@@ -23,6 +23,8 @@
  */
 package com.github.javaplugs.app;
 
+import com.github.javaplugs.Hasher;
+
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
@@ -32,7 +34,6 @@ import java.nio.channels.OverlappingFileLockException;
 import java.util.HashMap;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import com.github.javaplugs.Hasher;
 
 /**
  * Universal cross application instances locker.
@@ -86,8 +87,18 @@ public class CrossLock {
      *
      * @param lockId Unique lock identifier
      */
-    public static synchronized void remove(String lockId) {
-
+    public static void remove(String lockId) {
+        if (locks.containsKey(lockId)) {
+            CrossLock lock = null;
+            synchronized (CrossLock.class) {
+                if (locks.containsKey(lockId)) {
+                    lock = locks.remove(lockId);
+                }
+            }
+            if (lock != null) {
+                lock.release();
+            }
+        }
     }
 
     CrossLock(String lockId) {

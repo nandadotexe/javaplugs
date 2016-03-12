@@ -13,33 +13,12 @@ on the same computer.
 
 Just look into javadocs and tests.
 
-## Adding to your project
+[![Release](https://jitpack.io/v/javaplugs/javaplugs.svg)](https://jitpack.io/#javaplugs/javaplugs)  
+[API javadoc](https://jitpack.io/com/github/javaplugs/javaplugs/-SNAPSHOT/javadoc/)
 
-For now this package is available only via https://jitpack.io/
+## Add to your project
 
-### Gradle
-```
-repositories {
-  maven {
-    url "https://jitpack.io"
-  }
-}
+You can add this artifact to your project using [JitPack](https://jitpack.io/#javaplugs/javaplugs).  
+All versions list, instructions for gradle, maven, ivy etc. can be found by link above.
 
-dependencies {
-  compile 'com.github.javaplugs:javaplugs:0.1'
-}
-```
-
-### Maven
-```
-<repository>
-  <id>jitpack.io</id>
-  <url>https://jitpack.io</url>
-</repository>
-
-<dependency>
-  <groupId>com.github.javaplugs</groupId>
-  <artifactId>javaplugs</artifactId>
-  <version>0.1</version>
-</dependency>
-```
+To get latest commit use -SNAPSHOT instead version number.
